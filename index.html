@@ -1,46 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>  
 </head>
 <body>
-<ul class="messages">
-    <li>Sample Message</li>
-</ul>
-
-<input type="text" id="id">
-<textarea id="msg"></textarea>
-<input type="button" id="send">
-<script>
-    
-    
-    $(window).load(function(){
-        (function poll() {
-           setTimeout(function() {
-               $.ajax({ url: "getMsgs.php", success: function(data) {
-                   console.log('Data: '+data);
-               }, complete: poll, error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr.status);
-                console.log(thrownError);
-              } });
-            }, 1000);
-        })();
-        
-        $('#send').on('click', function(){
-            var id = $('#id').val();
-            var msg = $('#msg').val();
-            $.ajax({
-              type: "POST",
-              url: "sendMsg.php",
-              data: { 
-                  id  : id, 
-                  msg : msg
-              }
-            }).done(function( msg ) {
-                console.log(msg);
-              });
-        });
-    });
-</script>
+Hello World
 </body>
 </html>
